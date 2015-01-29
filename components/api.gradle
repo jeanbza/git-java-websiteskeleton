@@ -1,0 +1,11 @@
+dependencies {
+    compile(
+        "javax.servlet:javax.servlet-api:3.1.0",
+        "org.slf4j:slf4j-api:$slf4jVersion",
+    )
+
+    springCompile("spring-core")
+    springCompile("spring-webmvc")
+    springCompile("spring-context")
+    springCompile("spring-jdbc")
+}

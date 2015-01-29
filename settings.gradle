@@ -1,0 +1,5 @@
+rootProject.name = 'jean'
+
+include 'applications/pingpongpi'
+
+include 'components/hello'

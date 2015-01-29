@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.5
+version = '1.0'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    repositories {
+        maven {
+            url "https://repo.spring.io/libs-release"
+        }
+        mavenCentral()
+    }
+
+    ext {
+        springVersion = "4.1.0.RELEASE"
+        slf4jVersion = "1.7.7"
+
+        springCompile = { module ->
+            compile("org.springframework:$module:$springVersion") {
+                exclude group: "commons-logging"
+            }
+            compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
+        }
+        springCompile.delegate = project.dependencies
+    }
+}
+
+defaultTasks 'clean', 'build', 'war'
