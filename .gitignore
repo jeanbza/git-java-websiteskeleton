@@ -1,4 +1,6 @@
 *.iml
+*.pid
+*.state
 .gradle
 build
 *.class
