@@ -1,4 +1,5 @@
-practice-questions
 .gradle
+.iml
+build
 .class
 .idea
