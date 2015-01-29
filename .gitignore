@@ -1,5 +1,5 @@
 *.iml
-.gradlet
+.gradle
 build
 *.class
 .idea
