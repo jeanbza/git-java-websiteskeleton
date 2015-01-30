@@ -3,7 +3,7 @@
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
     <Set name="contextPath">/</Set>
     <Set name="war">
-        /Users/jadekler/workspace/git-spring-websiteskeleton/build/libs/ping-pong-pi-0.1.0.war
+        /Users/jadekler/workspace/git-spring-websiteskeleton/build/libs/jean-1.0.war
     </Set>
     <Set name="extractWAR">true</Set>
     <Set name="defaultsDescriptor">
