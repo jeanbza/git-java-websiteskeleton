@@ -7,9 +7,6 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.*;
 
-/**
- * Created by jadekler on 1/20/15.
- */
 public class HelloInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
