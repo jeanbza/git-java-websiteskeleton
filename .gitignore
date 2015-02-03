@@ -1,4 +1,5 @@
 *.iml
+logs
 *.pid
 *.state
 .gradle
