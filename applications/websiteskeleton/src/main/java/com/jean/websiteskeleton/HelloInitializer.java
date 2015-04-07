@@ -1,4 +1,4 @@
-package com.jean.pingpongpi;
+package com.jean.websiteskeleton;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

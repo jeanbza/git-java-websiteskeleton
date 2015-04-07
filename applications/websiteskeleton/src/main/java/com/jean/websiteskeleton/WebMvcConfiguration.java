@@ -1,4 +1,4 @@
-package com.jean.pingpongpi;
+package com.jean.websiteskeleton;
 
 import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.ViewResolver;

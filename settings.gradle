@@ -1,5 +1,5 @@
 rootProject.name = 'jean'
 
-include 'applications/pingpongpi'
+include 'applications/websiteskeleton'
 
 include 'components/hello'
