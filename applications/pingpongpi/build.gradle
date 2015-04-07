@@ -10,7 +10,6 @@ dependencies {
     springCompile("spring-core")
     springCompile("spring-webmvc")
     springCompile("spring-context")
-    springCompile("spring-jdbc")
 }
 
 war
