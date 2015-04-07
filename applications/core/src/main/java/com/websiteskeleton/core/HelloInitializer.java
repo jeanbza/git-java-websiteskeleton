@@ -1,4 +1,4 @@
-package com.jean.websiteskeleton;
+package com.websiteskeleton.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

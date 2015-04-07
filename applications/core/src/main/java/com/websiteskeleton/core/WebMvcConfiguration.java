@@ -1,4 +1,4 @@
-package com.jean.websiteskeleton;
+package com.websiteskeleton.core;
 
 import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.ViewResolver;
