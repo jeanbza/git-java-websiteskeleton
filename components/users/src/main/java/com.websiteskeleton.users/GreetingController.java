@@ -1,4 +1,4 @@
-package com.websiteskeleton.hello;
+package com.websiteskeleton.users;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +16,9 @@ public class GreetingController {
         return "index";
     }
 
-    @RequestMapping(value = "/fubar")
+    @RequestMapping(value = "/users")
     @ResponseBody
-    public String getFubar() {
-        return "Fubar!";
+    public String getUsers() {
+        return "users are here!";
     }
 }
