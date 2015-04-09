@@ -13,7 +13,7 @@ public class GreetingController {
     @RequestMapping(value = "/foo", method = RequestMethod.GET)
     public String getFoo(Model model) {
         System.out.println("bom");
-        return "index";
+        return "home";
     }
 
     @RequestMapping(value = "/users")
