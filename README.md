@@ -13,7 +13,7 @@ A website skeleton written with JDK1.8, Spring 4.0 (without spring boot), multi-
 
 1. `git clone https://github.com/jadekler/git-spring-websiteskeleton.git`. I'll assume you cloned this at
 `~/workspace/git-spring-websiteskeleton`
-1. `cd git-spring-websiteskeleton`
+1. `cd ~/workspace/git-spring-websiteskeleton`
 1. `gradle`
 1. Download [jetty](http://download.eclipse.org/jetty/stable-9/dist/) (or your server of choice). For this tutorial,
 we'll assume you downloaded jetty at `~/workspace/jetty`
