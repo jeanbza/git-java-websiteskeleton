@@ -1,5 +1,9 @@
 # git-spring-websiteskeleton
 
+NOTE: This is a work in progress.
+
+--
+
 A website skeleton written with JDK1.8, Spring 4.0 (without spring boot), multi-component Gradle, and JSPs. More to come!
 
 --
