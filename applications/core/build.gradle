@@ -8,7 +8,16 @@ dependencies {
         "javax.servlet:javax.servlet-api:3.1.0",
     )
 
+    providedRuntime(
+        "org.glassfish.web:javax.servlet.jsp.jstl:1.2.2"
+    )
+
+    runtime(
+        "ch.qos.logback:logback-classic:1.1.2"
+    )
+
     springCompile("spring-core")
+    springCompile("spring-web")
     springCompile("spring-webmvc")
     springCompile("spring-context")
 }
