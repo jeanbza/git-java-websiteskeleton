@@ -11,8 +11,15 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver jspResolver = new InternalResourceViewResolver();
-        jspResolver.setPrefix("/*");
+        jspResolver.setPrefix("/");
         jspResolver.setSuffix(".jsp");
         return jspResolver;
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/css/**").addResourceLocations("/css/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/js/");
+        registry.addResourceHandler("/img/**").addResourceLocations("/img/");
     }
 }

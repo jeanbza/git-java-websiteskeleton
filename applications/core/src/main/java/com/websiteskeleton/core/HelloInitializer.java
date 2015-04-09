@@ -15,9 +15,12 @@ public class HelloInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         logger.info("starting.");
+
         AnnotationConfigWebApplicationContext springRootContext = new AnnotationConfigWebApplicationContext();
-        springRootContext.setConfigLocations("com.jean");
+        springRootContext.setConfigLocations("com.websiteskeleton");
+
         servletContext.addListener(new ContextLoaderListener(springRootContext));
+
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(springRootContext));
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
