@@ -29,10 +29,10 @@ public class UsersControllerTest {
 
     @Test
     public void testGetUsers() throws Exception {
-        String sampleJson = "{[" +
-        "{\"name\":\"Bob\"}," +
+        String sampleJson = "[" +
+            "{\"name\":\"Bob\"}," +
             "{\"name\":\"Sue\"}" +
-            "]}";
+        "]";
 
         mockMvc.perform(get("/users"))
             .andExpect(status().isOk())

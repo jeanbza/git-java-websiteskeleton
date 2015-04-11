@@ -9,10 +9,10 @@ public class ProductsController {
     @RequestMapping(value = "/products")
     @ResponseBody
     public ResponseEntity<String> getUsers() {
-        return new ResponseEntity<>("{[" +
+        return new ResponseEntity<>("[" +
             "{\"name\":\"Super Glue\"}," +
             "{\"name\":\"Kool-Aide\"}" +
-            "]}", getJsonHeaders(), HttpStatus.OK);
+        "]", getJsonHeaders(), HttpStatus.OK);
     }
 
     private HttpHeaders getJsonHeaders() {

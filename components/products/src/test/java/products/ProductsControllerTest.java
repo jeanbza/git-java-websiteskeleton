@@ -22,10 +22,10 @@ public class ProductsControllerTest {
 
     @Test
     public void testGetUsers() throws Exception {
-        String sampleJson = "{[" +
+        String sampleJson = "[" +
             "{\"name\":\"Super Glue\"}," +
             "{\"name\":\"Kool-Aide\"}" +
-            "]}";
+        "]";
 
         mockMvc.perform(get("/products"))
             .andExpect(status().isOk())

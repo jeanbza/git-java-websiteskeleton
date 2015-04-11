@@ -15,10 +15,10 @@ public class UsersController {
     @RequestMapping(value = "/users")
     @ResponseBody
     public ResponseEntity<String> getUsers() {
-        return new ResponseEntity<>("{[" +
+        return new ResponseEntity<>("[" +
             "{\"name\":\"Bob\"}," +
             "{\"name\":\"Sue\"}" +
-            "]}", getJsonHeaders(), HttpStatus.OK);
+        "]", getJsonHeaders(), HttpStatus.OK);
     }
 
     private HttpHeaders getJsonHeaders() {
