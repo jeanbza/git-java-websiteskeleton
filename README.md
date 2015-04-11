@@ -20,3 +20,12 @@ we'll assume you downloaded jetty at `~/workspace/jetty`
 1. `cp ~/workspace/git-spring-websiteskeleton/applications/core/build/libs/applications/core.war ~/workspace/jetty/webapps/core.war`
 1. `~/workspace/jetty/bin/jetty.sh start`
 1. Navigate to `http://localhost:8080/core/foo`
+
+## Running tests
+
+1. Unit tests: `gradle` (which will clean, test, build) or simply `gradle :test` (which will just run tests
+1. Integration tests:
+    1. Install ruby 2.1.2 (see [guide here](https://www.ruby-lang.org/en/documentation/installation/))
+    1. Install bundler (see [guide here](http://bundler.io/))
+    1. Install gems: `cd integration_tests && bundle install`
+    1. Run tests: `cd integration_tests && rspec`
