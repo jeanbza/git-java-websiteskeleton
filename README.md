@@ -1,5 +1,7 @@
 # git-spring-websiteskeleton
 
+[![Build Status](https://travis-ci.org/jadekler/git-spring-websiteskeleton.svg)](https://travis-ci.org/jadekler/git-spring-websiteskeleton)
+
 NOTE: This is a work in progress. To be added:
 
 - Jackson & JSON example endpoints
@@ -32,4 +34,11 @@ we'll assume you downloaded jetty at `~/workspace/jetty`
     1. Install ruby 2.1.2 (see [guide here](https://www.ruby-lang.org/en/documentation/installation/))
     1. Install bundler (see [guide here](http://bundler.io/))
     1. Install gems: `cd integration_tests && bundle install`
+    1. *Make sure the app is already running* (see instructions above on running). Integration tests are hardcoded to
+    `http://localhost:8080/core` - change the relevant `.rb` files if it lives elsewhere
     1. Run tests: `cd integration_tests && rspec`
+
+## Additional notes
+
+- Travis CI will only run unit tests. Integration tests require spinning up a server and running the app. This may
+be a future addition to the repo
