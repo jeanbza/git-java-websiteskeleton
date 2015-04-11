@@ -1,11 +1,15 @@
 # git-spring-websiteskeleton
 
-NOTE: This is a work in progress. To be added: junit tests, some form of integration tests, jackson+json endpoints,
-some java patterns (builders, dao separation, private function separate, etc), gradle cleanup, jstl.
+NOTE: This is a work in progress. To be added:
+
+- Jackson & JSON example endpoints
+- Some java patterns (builders, dao separation)
+- JSTL
 
 --
 
-A website skeleton written with JDK1.8, Spring 4.0 (without spring boot), multi-component Gradle, and JSPs.
+A website skeleton written with JDK1.8, Spring 4.0 (without spring boot), multi-component Gradle, JSPs, JUnit tests,
+and rspec integration tests.
 
 --
 
