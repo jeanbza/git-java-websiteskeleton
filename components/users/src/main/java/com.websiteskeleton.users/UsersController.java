@@ -6,13 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class GreetingController {
-    public GreetingController() {
-        System.out.println("wtf");
-    }
-
+public class UsersController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getFoo(Model model) {
+    public String getIndex() {
         return "home";
     }
 
