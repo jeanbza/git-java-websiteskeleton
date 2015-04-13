@@ -1,21 +1,15 @@
-require 'capybara/rspec'
-require 'capybara/webkit'
-require 'capybara/dsl'
 require 'bundler'
 require 'rubygems'
 
-require 'sinatra'
 Bundler.require :default
 
+require 'sinatra'
 require 'simulator'
 
 Capybara.app = Simulator
-
-# Capybara.default_driver = :webkit
-# Capybara.app_host = "http://localhost:8080/core"
-# Capybara.app = Simulator
-# Capybara.server_port = 8081
-# Capybara.run_server = true
+Capybara.default_driver = :webkit
+Capybara.app_host = "http://localhost:8080/core"
+Capybara.server_port = 8081
 
 RSpec.configure do |config|
     config.filter_run :focus
