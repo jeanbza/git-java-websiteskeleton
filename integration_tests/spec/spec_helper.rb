@@ -3,6 +3,8 @@ require 'rubygems'
 
 Bundler.require :default
 
+$simulator_response = "Hello World!"
+
 require 'sinatra'
 require 'simulator'
 
