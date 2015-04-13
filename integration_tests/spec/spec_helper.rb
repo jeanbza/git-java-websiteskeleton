@@ -9,7 +9,7 @@ require 'simulator'
 Capybara.app = Simulator
 Capybara.default_driver = :webkit
 Capybara.app_host = "http://localhost:8080/core"
-Capybara.server_port = 8081
+Capybara.server_port = 8081 # Simulator port
 
 RSpec.configure do |config|
     config.filter_run :focus
