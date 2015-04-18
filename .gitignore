@@ -1,4 +1,5 @@
 *.iml
+*.lock
 .vagrant*
 logs
 *.pid
