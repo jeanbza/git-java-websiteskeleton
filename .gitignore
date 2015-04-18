@@ -1,4 +1,5 @@
 *.iml
+.vagrant*
 logs
 *.pid
 *.state
