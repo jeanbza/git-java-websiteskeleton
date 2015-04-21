@@ -50,3 +50,5 @@ we'll assume you downloaded jetty at `~/workspace/jetty`
 
 - Travis CI will only run unit tests. Integration tests require spinning up a server and running the app. This may
 be a future addition to the repo
+- The java chef downloads from oracle (sigh). If your connection is slow or spotty, it may fail on a curl command. Give it
+a couple of shots (`vagrant provision` will do it) until the curl successfully completes
