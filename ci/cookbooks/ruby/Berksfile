@@ -1,0 +1,5 @@
+source "https://supermarket.getchef.com"
+
+cookbook 'libffi', :path => '../cookbooks/libffi'
+
+metadata

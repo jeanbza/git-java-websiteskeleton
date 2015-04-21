@@ -7,8 +7,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.berkshelf.enabled = true
 
     config.vm.provision "chef_solo" do |chef|
+        chef.add_recipe 'ruby'
+
         chef.roles_path = "roles"
         chef.add_role("java")
-        chef.add_role("rbenv")
     end
 end

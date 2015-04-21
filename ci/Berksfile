@@ -1,3 +1,6 @@
 source "https://supermarket.getchef.com"
 
+cookbook 'libffi', :path => 'cookbooks/libffi'
+cookbook 'ruby', :path => 'cookbooks/ruby'
+
 metadata
