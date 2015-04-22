@@ -1,6 +1,7 @@
 source "https://supermarket.getchef.com"
 
 cookbook 'libffi', :path => 'cookbooks/libffi'
+cookbook 'yum-epel', '~> 0.6.0'
 cookbook 'ruby', :path => 'cookbooks/ruby'
 
 metadata
