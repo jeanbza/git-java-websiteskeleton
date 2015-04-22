@@ -2,9 +2,7 @@
 #URL: http://rpmforge.net/
 [rpmforge]
 name = Red Hat Enterprise $releasever - RPMforge.net - dag
-#baseurl = http://apt.sw.be/redhat/el6/en/$basearch/dag
 mirrorlist = http://apt.sw.be/redhat/el6/en/mirrors-rpmforge
-#mirrorlist = file:///etc/yum.repos.d/mirrors-rpmforge
 enabled = 1
 protect = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag
