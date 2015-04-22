@@ -1,6 +1,3 @@
-include_recipe 'yum-epel'
-include_recipe 'libyaml'
-include_recipe 'libffi'
 include_recipe 'rbenv'
 include_recipe 'rbenv::ruby_build'
 

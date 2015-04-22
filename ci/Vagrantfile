@@ -10,5 +10,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         chef.roles_path = 'roles'
         chef.add_role('ruby')
         chef.add_role('java')
+        chef.add_role('jenkins')
     end
 end
