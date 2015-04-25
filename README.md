@@ -38,17 +38,18 @@ we'll assume you downloaded jetty at `~/workspace/jetty`
     `http://localhost:8080/core` - change the relevant `.rb` files if it lives elsewhere
     1. Run tests: `cd integration_tests && rspec`
 
-## Setting up CI (with jenkins, vagrant, chef)
+## Setting up CI (with jenkins, vagrant, virtualbox, chef)
 
-1. Install chef-dk
-1. Install vagrant
+1. [Install chef-dk](https://downloads.chef.io/chef-dk/)
+1. [Install vagrant](http://www.vagrantup.com/downloads.html)
+1. [Install virtualbox](https://www.virtualbox.org/wiki/Downloads)
+    - Note: if you get an error about `vboxsf`, [download Virtualbox 4.3.20 here](https://www.virtualbox.org/wiki/Download_Old_Builds_4_3)
 1. `vagrant plugin install vagrant-berkshelf`
 1. `vagrant plugin install vagrant-omnibus`
 1. `vagrant plugin install vagrant-vbguest` (possibly optional - install this if you see `Failed to mount folders in Linux guest.`)
 
 ## Additional notes
 
-- Travis CI will only run unit tests. Integration tests require spinning up a server and running the app. This may
-be a future addition to the repo
+- Travis CI will only run unit tests. Integration tests require spinning up a server and running the app. This is in the works
 - The java chef downloads from oracle (sigh). If your connection is slow or spotty, it may fail on a curl command. Give it
 a couple of shots (`vagrant provision` will do it) until the curl successfully completes
