@@ -6,6 +6,15 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ProductsController {
+    private Logger logger;
+    private ProductsDAO productsDAO;
+
+    @Autowired
+    public ProductsController(Logger logger, ProductsDAO productsDAO) {
+        this.logger = logger;
+        this.productsDAO = productsDAO;
+    }
+
     @RequestMapping(value = "/products")
     @ResponseBody
     public ResponseEntity<String> getUsers() {
