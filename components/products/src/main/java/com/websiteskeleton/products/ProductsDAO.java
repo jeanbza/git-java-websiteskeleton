@@ -1,4 +1,0 @@
-@REpository
-public class PRoductsDAO {
-
-}
