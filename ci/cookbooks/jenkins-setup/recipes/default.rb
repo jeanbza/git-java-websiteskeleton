@@ -3,15 +3,30 @@ include_recipe 'jenkins::master'
 jenkins_plugin 'git'
 jenkins_plugin 'gradle'
 
-skeleton_build = File.join(Chef::Config[:file_cache_path], 'skeleton-build-job.xml')
+create_test_jobs('Skeleton', 'https://github.com/jadekler/git-spring-websiteskeleton.git')
 
-template skeleton_build do
-    source 'build-job.xml.erb'
-    variables({
-      :git_repo => 'https://github.com/jadekler/git-spring-websiteskeleton.git'
-    })
+cookbook_file 'credentials.xml' do
+    owner 'jenkins'
+    group 'jenkins'
+    mode '0644'
+    path '/var/lib/jenkins/credentials.xml'
 end
 
-jenkins_job 'SkeletonBuild' do
-    config skeleton_build
+def create_test_jobs(app_name, git_repo)
+    build_job = File.join(Chef::Config[:file_cache_path], "#{app_name}-build-job.xml")
+
+    # PLEASE NOTE: You WILL need to set up your own credentials
+    template build_job do
+        source 'build-job.xml.erb'
+        variables({:git_repo => git_repo})
+    end
+
+    jenkins_job "#{app_name}Build" do
+        config build_job
+    end
+
+    template integration_job do
+        source 'integration-job.xml.erb'
+        variables({:app_name => app_name})
+    end
 end

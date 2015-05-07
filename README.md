@@ -38,7 +38,7 @@ we'll assume you downloaded jetty at `~/workspace/jetty`
     `http://localhost:8080/core` - change the relevant `.rb` files if it lives elsewhere
     1. Run tests: `cd integration_tests && rspec`
 
-## Setting up CI (with jenkins, vagrant, virtualbox, chef)
+## Setting up Jenkins CI (with vagrant, virtualbox, chef)
 
 1. [Install chef-dk](https://downloads.chef.io/chef-dk/)
 1. [Install vagrant](http://www.vagrantup.com/downloads.html)
@@ -47,6 +47,7 @@ we'll assume you downloaded jetty at `~/workspace/jetty`
 1. `vagrant plugin install vagrant-berkshelf`
 1. `vagrant plugin install vagrant-omnibus`
 1. `vagrant plugin install vagrant-vbguest` (possibly optional - install this if you see `Failed to mount folders in Linux guest.`)
+1. `cd ~/workspace/git-spring-websiteskeleton/ci && vagrant up --provision`
 
 ## Additional notes
 
