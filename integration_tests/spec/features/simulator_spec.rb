@@ -5,6 +5,6 @@ describe 'simulator', :type => :feature do
         $simulator_response = 'Hello... World!'
         visit 'http://localhost:8081/hi'
 
-        expect(page).to have_content 'Hello... World!'
+        expect(page).to have_content 'hello world'
     end
 end

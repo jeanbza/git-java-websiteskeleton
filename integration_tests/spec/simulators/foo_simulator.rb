@@ -2,8 +2,10 @@
 
 require 'sinatra'
 
-class Simulator < Sinatra::Base
+class FooSimulator < Sinatra::Base
+    set :port, 8081
+
     get '/hi' do
-        $simulator_response
+        'hello world'
     end
 end

@@ -1,4 +1,6 @@
 *.iml
+*.log
+*.err
 *.lock
 .vagrant*
 logs
