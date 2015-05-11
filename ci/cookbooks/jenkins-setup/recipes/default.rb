@@ -3,8 +3,6 @@ include_recipe 'jenkins::master'
 jenkins_plugin 'git'
 jenkins_plugin 'gradle'
 
-create_test_jobs('Skeleton', 'https://github.com/jadekler/git-spring-websiteskeleton.git')
-
 cookbook_file 'credentials.xml' do
     owner 'jenkins'
     group 'jenkins'
@@ -25,8 +23,16 @@ def create_test_jobs(app_name, git_repo)
         config build_job
     end
 
+    integration_job = File.join(Chef::Config[:file_cache_path], "#{app_name}-build-job.xml")
+
     template integration_job do
         source 'integration-job.xml.erb'
         variables({:app_name => app_name})
     end
+
+    jenkins_job "#{app_name}IntegrationTests" do
+        config integration_job
+    end
 end
+
+create_test_jobs('Skeleton', 'https://github.com/jadekler/git-spring-websiteskeleton.git')
