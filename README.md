@@ -17,6 +17,7 @@ and rspec integration tests.
 
 ## Installation and running
 
+1. [Download and install JDK8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 1. `git clone https://github.com/jadekler/git-spring-websiteskeleton.git`. I'll assume you cloned this at
 `~/workspace/git-spring-websiteskeleton`
 1. `cd ~/workspace/git-spring-websiteskeleton`
