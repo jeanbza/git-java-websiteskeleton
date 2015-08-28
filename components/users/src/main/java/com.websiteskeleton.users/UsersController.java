@@ -11,6 +11,13 @@ public class UsersController {
         return "home";
     }
 
+    // TODO: Move to more appropriate place
+    @RequestMapping(value = "/health")
+    @ResponseBody
+    public ResponseEntity<String> getHealth() {
+        return new ResponseEntity<>("OK", getJsonHeaders(), HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/users")
     @ResponseBody
     public ResponseEntity<String> getUsers() {

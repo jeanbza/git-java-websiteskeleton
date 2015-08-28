@@ -1,25 +1,43 @@
 apply plugin: 'war'
+apply plugin: 'com.bmuschko.tomcat'
+apply plugin: 'com.bmuschko.tomcat-base'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.2'
+    }
+}
+
+def tomcatVersion = '7.0.59'
 
 dependencies {
     compile(
-        project(":components/users"),
+        project(":components/unit.users"),
         project(":components/products"),
 
         "javax.servlet:javax.servlet-api:3.1.0",
-    )
-
-    providedRuntime(
-        "org.glassfish.web:javax.servlet.jsp.jstl:1.2.2"
     )
 
     runtime(
         "ch.qos.logback:logback-classic:1.1.2"
     )
 
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+
     springCompile("spring-core")
     springCompile("spring-web")
     springCompile("spring-webmvc")
     springCompile("spring-context")
+}
+
+task integrationTomcatRunWar(type: com.bmuschko.gradle.tomcat.tasks.TomcatRunWar) {
+    daemon = true
 }
 
 war

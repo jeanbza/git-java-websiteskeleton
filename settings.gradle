@@ -2,5 +2,7 @@ rootProject.name = 'websiteskeleton'
 
 include 'applications/core'
 
-include 'components/users'
+include 'components/unit.users'
 include 'components/products'
+
+include 'x_integration_tests'

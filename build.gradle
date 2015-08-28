@@ -45,4 +45,8 @@ subprojects {
     }
 }
 
+test {
+    exclude '**/integration_tests/**'
+}
+
 defaultTasks 'clean', 'test', 'build', 'war'

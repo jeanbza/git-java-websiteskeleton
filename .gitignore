@@ -10,4 +10,4 @@ logs
 build
 *.class
 .idea
-
+classes*

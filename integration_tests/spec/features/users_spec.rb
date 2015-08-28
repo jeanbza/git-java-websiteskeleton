@@ -1,9 +1,9 @@
 require File.join(File.dirname(__FILE__), '../spec_helper')
 
-describe 'the users api', :type => :feature do
-    describe 'GET /users' do
-        it 'returns a list of users' do
-            resp = HTTParty.get('http://localhost:8080/core/users')
+describe 'the unit.users api', :type => :feature do
+    describe 'GET /unit.users' do
+        it 'returns a list of unit.users' do
+            resp = HTTParty.get('http://localhost:8080/core/unit.users')
 
             expect(resp.code).to eq 200
             expect(JSON.parse(resp.body)).to eq [{"name" => 'Bob'}, {"name" => 'Sue'}]

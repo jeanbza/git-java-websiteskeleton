@@ -1,4 +1,4 @@
-package users;
+package unit;
 
 import com.websiteskeleton.users.UsersController;
 import org.junit.*;
@@ -34,7 +34,7 @@ public class UsersControllerTest {
             "{\"name\":\"Sue\"}" +
         "]";
 
-        mockMvc.perform(get("/users"))
+        mockMvc.perform(get("/unit/users"))
             .andExpect(status().isOk())
             .andExpect(content().string(sampleJson))
             .andExpect(header().string("content-type", "application/json"));
