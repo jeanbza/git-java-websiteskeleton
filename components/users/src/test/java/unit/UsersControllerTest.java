@@ -34,7 +34,7 @@ public class UsersControllerTest {
             "{\"name\":\"Sue\"}" +
         "]";
 
-        mockMvc.perform(get("/unit/users"))
+        mockMvc.perform(get("/users"))
             .andExpect(status().isOk())
             .andExpect(content().string(sampleJson))
             .andExpect(header().string("content-type", "application/json"));

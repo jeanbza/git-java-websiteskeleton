@@ -12,5 +12,10 @@ dependencies {
 
 task acceptanceTest(type: Test) {
     include 'acceptance/**'
-    exclude '**/unit/**'
+    exclude 'unit/**'
+}
+
+task unitTest(type: Test) {
+    include 'unit/**'
+    exclude 'acceptance/**'
 }

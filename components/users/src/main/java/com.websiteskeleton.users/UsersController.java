@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UsersController {
+    // TODO: Move to more appropriate place
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getIndex() {
         return "home";
@@ -24,7 +25,7 @@ public class UsersController {
         return new ResponseEntity<>("[" +
             "{\"name\":\"Bob\"}," +
             "{\"name\":\"Sue\"}" +
-        "]", getJsonHeaders(), HttpStatus.OK);
+            "]", getJsonHeaders(), HttpStatus.OK);
     }
 
     private HttpHeaders getJsonHeaders() {
