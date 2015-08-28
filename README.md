@@ -2,16 +2,10 @@
 
 [![Build Status](https://travis-ci.org/jadekler/git-java-websiteskeleton.svg?branch=master)](https://travis-ci.org/jadekler/git-java-websiteskeleton)
 
-NOTE: This is a work in progress. To be added:
-
-- Jackson & JSON example endpoints
-- Some java patterns (builders, dao separation)
-- JSTL
-
 --
 
 A website skeleton written with JDK1.8, Spring 4.0 (without spring boot), multi-component Gradle, JSPs, JUnit tests,
-and rspec integration tests.
+and FluentLenium+Rest-Assured acceptance tests.
 
 --
 
@@ -21,7 +15,7 @@ and rspec integration tests.
 1. `git clone https://github.com/jadekler/git-spring-websiteskeleton.git`. I'll assume you cloned this at
 `~/workspace/git-spring-websiteskeleton`
 1. `cd ~/workspace/git-spring-websiteskeleton`
-1. `gradle`
+1. `./gradlew`
 1. Download [jetty](http://download.eclipse.org/jetty/stable-9/dist/) (or your server of choice). For this tutorial,
 we'll assume you downloaded jetty at `~/workspace/jetty`
 1. `cp ~/workspace/git-spring-websiteskeleton/applications/core/build/libs/applications/core.war ~/workspace/jetty/webapps/core.war`
@@ -30,14 +24,9 @@ we'll assume you downloaded jetty at `~/workspace/jetty`
 
 ## Running tests
 
-1. Unit tests: `gradle` (which will clean, test, build) or simply `gradle :test` (which will just run tests
-1. Integration tests:
-    1. Install ruby 2.1.2 (see [guide here](https://www.ruby-lang.org/en/documentation/installation/))
-    1. Install bundler (see [guide here](http://bundler.io/))
-    1. Install gems: `cd integration_tests && bundle install`
-    1. *Make sure the app is already running* (see instructions above on running). Integration tests are hardcoded to
-    `http://localhost:8080/core` - change the relevant `.rb` files if it lives elsewhere
-    1. Run tests: `cd integration_tests && rspec`
+1. Unit tests: either `./gradlew` (clean compile test), or specifically `./gradlew unitTest`
+1. Acceptance tests: `./gradlew acceptanceTest`
+    - Note: you may need to install Firefox for Selenium to run
 
 ## Setting up Jenkins CI (with vagrant, virtualbox, chef)
 
