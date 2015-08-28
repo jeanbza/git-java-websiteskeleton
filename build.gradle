@@ -81,8 +81,4 @@ acceptanceTest.doFirst {
     println 'Running tests...'
 }
 
-task unitTest(type: Test) {
-    exclude '**/acceptance/**'
-}
-
-defaultTasks 'clean', 'unitTest', 'build', 'war'
+defaultTasks 'clean', 'assemble', 'unitTest', 'war'
