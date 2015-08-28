@@ -39,7 +39,9 @@ subprojects {
             'org.mockito:mockito-core:1.9.5',
             'org.fluentlenium:fluentlenium-core:0.10.3',
             'org.fluentlenium:fluentlenium-assertj:0.10.3',
-            'org.seleniumhq.selenium:selenium-java:2.47.1'
+            'org.seleniumhq.selenium:selenium-java:2.47.1',
+            'com.jayway.restassured:rest-assured:2.5.0',
+            'com.jayway.restassured:json-schema-validator:2.5.0'
         )
 
         testRuntime(

@@ -13,6 +13,12 @@ dependencies {
 task acceptanceTest(type: Test) {
     include 'acceptance/**'
     exclude 'unit/**'
+
+    println "${projectDir}/src/test/java/acceptance/restassured/fixtures/**"
+    println files("${projectDir}/src/test/java/acceptance/restassured/fixtures/**")
+
+    def fixtures = files("${projectDir}/src/test/java/acceptance/restassured/fixtures/")
+    classpath += fixtures
 }
 
 task unitTest(type: Test) {

@@ -13,6 +13,7 @@ public class UsersController {
     }
 
     // TODO: Move to more appropriate place
+    // TODO: Needs a unit test
     @RequestMapping(value = "/health")
     @ResponseBody
     public ResponseEntity<String> getHealth() {
