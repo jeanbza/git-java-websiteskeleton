@@ -1,4 +1,4 @@
-package products;
+package unit;
 
 import com.websiteskeleton.products.ProductsController;
 import org.junit.*;
