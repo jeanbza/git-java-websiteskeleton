@@ -9,3 +9,8 @@ dependencies {
     springCompile("spring-core")
     springCompile("spring-webmvc")
 }
+
+task acceptanceTest(type: Test) {
+    include 'acceptance/**'
+    exclude '**/unit/**'
+}

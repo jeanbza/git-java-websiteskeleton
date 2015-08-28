@@ -1,13 +1,14 @@
 package acceptance;
 
+import org.fluentlenium.adapter.FluentTest;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
-public class BarTest {
+public class BarTest extends FluentTest {
     @Test
-    public void testNothing() {
-        assertThat("foo", equalTo("foo"));
+    public void health_check_should_show_OK() {
+        goTo("http://127.0.0.1:8080/applications/core/health");
+        assertThat(pageSource()).contains("OK");
     }
 }

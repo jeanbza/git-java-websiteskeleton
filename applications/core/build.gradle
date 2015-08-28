@@ -16,7 +16,7 @@ def tomcatVersion = '7.0.59'
 
 dependencies {
     compile(
-        project(":components/unit.users"),
+        project(":components/users"),
         project(":components/products"),
 
         "javax.servlet:javax.servlet-api:3.1.0",
@@ -36,7 +36,7 @@ dependencies {
     springCompile("spring-context")
 }
 
-task integrationTomcatRunWar(type: com.bmuschko.gradle.tomcat.tasks.TomcatRunWar) {
+task acceptanceTomcatRunWar(type: com.bmuschko.gradle.tomcat.tasks.TomcatRunWar) {
     daemon = true
 }
 

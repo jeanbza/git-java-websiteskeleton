@@ -13,18 +13,18 @@ subprojects {
 
     repositories {
         maven {
-            url "https://repo.spring.io/libs-release"
+            url 'https://repo.spring.io/libs-release'
         }
         mavenCentral()
     }
 
     ext {
-        springVersion = "4.1.0.RELEASE"
-        slf4jVersion = "1.7.7"
+        springVersion = '4.1.0.RELEASE'
+        slf4jVersion = '1.7.7'
 
         springCompile = { module ->
             compile("org.springframework:$module:$springVersion") {
-                exclude group: "commons-logging"
+                exclude group: 'commons-logging'
             }
             compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
         }
@@ -34,19 +34,55 @@ subprojects {
     dependencies {
         testCompile(
             "org.springframework:spring-test:$springVersion",
-            "junit:junit:4.11",
-            "org.hamcrest:hamcrest-library:1.3",
-            "org.mockito:mockito-core:1.9.5",
+            'junit:junit:4.11',
+            'org.hamcrest:hamcrest-library:1.3',
+            'org.mockito:mockito-core:1.9.5',
+            'org.fluentlenium:fluentlenium-core:0.10.3',
+            'org.fluentlenium:fluentlenium-assertj:0.10.3',
+            'org.seleniumhq.selenium:selenium-java:2.47.1'
         )
 
         testRuntime(
-            "ch.qos.logback:logback-classic:1.1.2",
+            'ch.qos.logback:logback-classic:1.1.2',
         )
     }
 }
 
-test {
-    exclude '**/integration_tests/**'
+task acceptanceTest(type: Test) {
+    dependsOn(
+        ':applications/core:build',
+        ':applications/core:war',
+        ':applications/core:acceptanceTomcatRunWar'
+    )
 }
 
-defaultTasks 'clean', 'test', 'build', 'war'
+acceptanceTest.doFirst {
+    println 'Waiting on server...'
+    Thread.sleep(3000) // ensure the server has been stopped before our first getHealth
+
+    def attempts = 0;
+    def maxAttempts = 120;
+    def getHealth = {
+        try {
+            return 'http://127.0.0.1:8080/applications/core/health'.toURL().getText()
+        } catch (Exception e) {
+            return ''
+        }
+    }
+    while (!getHealth().contains('OK')) {
+        println 'Attempt ' + attempts
+        attempts++;
+        Thread.sleep(1000)
+        if (attempts >= maxAttempts) {
+            throw new GradleException('Timeout waiting for server to be up.')
+        }
+    }
+
+    println 'Running tests...'
+}
+
+task unitTest(type: Test) {
+    exclude '**/acceptance/**'
+}
+
+defaultTasks 'clean', 'unitTest', 'build', 'war'
