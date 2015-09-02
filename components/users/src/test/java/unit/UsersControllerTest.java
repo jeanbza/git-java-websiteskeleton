@@ -28,6 +28,14 @@ public class UsersControllerTest {
     }
 
     @Test
+    public void testGetHealth() throws Exception {
+        mockMvc.perform(get("/health"))
+            .andExpect(status().isOk())
+            .andExpect(content().string("OK"))
+            .andExpect(header().string("content-type", "application/json"));
+    }
+
+    @Test
     public void testGetUsers() throws Exception {
         String sampleJson = "[" +
             "{\"name\":\"Bob\"}," +

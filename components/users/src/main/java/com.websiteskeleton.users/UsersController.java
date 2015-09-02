@@ -6,7 +6,6 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.*;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -22,11 +21,10 @@ public class UsersController {
     }
 
     // TODO: Move to more appropriate place
-    // TODO: Needs a unit test
     @RequestMapping(value = "/health", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<String> getHealth() {
-        return new ResponseEntity<>("OK", HttpStatus.OK);
+    public String getHealth() {
+        return "OK";
     }
 
     @RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
