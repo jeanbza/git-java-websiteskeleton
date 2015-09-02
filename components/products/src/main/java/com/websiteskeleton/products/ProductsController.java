@@ -17,7 +17,7 @@ public class ProductsController {
 
     @RequestMapping(value = "/products", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public String getProducts(HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
+    public String getProducts() throws JsonProcessingException {
         List<Product> products = asList(
             new Product("Super Glue"),
             new Product("Kool-Aide")

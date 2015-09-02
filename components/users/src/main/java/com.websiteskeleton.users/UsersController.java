@@ -31,7 +31,7 @@ public class UsersController {
 
     @RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public String getUsers(HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
+    public String getUsers() throws JsonProcessingException {
         List<User> users = asList(
             new User("Bob"),
             new User("Sue")
