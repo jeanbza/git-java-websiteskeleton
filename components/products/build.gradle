@@ -1,12 +1,13 @@
 dependencies {
     compile(
         "org.slf4j:slf4j-api:$slf4jVersion",
-        "javax.servlet:javax.servlet-api:3.1.0"
+        'javax.servlet:javax.servlet-api:3.1.0',
+        'com.fasterxml.jackson.core:jackson-databind:2.6.1'
     )
 
-    springCompile("spring-context")
-    springCompile("spring-core")
-    springCompile("spring-webmvc")
+    springCompile('spring-context')
+    springCompile('spring-core')
+    springCompile('spring-webmvc')
 }
 
 task acceptanceTest(type: Test) {

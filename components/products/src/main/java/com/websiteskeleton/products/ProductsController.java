@@ -1,23 +1,28 @@
 package com.websiteskeleton.products;
 
-import org.springframework.http.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.*;
+import java.util.List;
+
+import static java.util.Arrays.asList;
+
 @Controller
 public class ProductsController {
-    @RequestMapping(value = "/products")
-    @ResponseBody
-    public ResponseEntity<String> getUsers() {
-        return new ResponseEntity<>("[" +
-            "{\"name\":\"Super Glue\"}," +
-            "{\"name\":\"Kool-Aide\"}" +
-        "]", getJsonHeaders(), HttpStatus.OK);
-    }
+    private final ObjectMapper jsonMapper = new ObjectMapper();
 
-    private HttpHeaders getJsonHeaders() {
-        HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("Content-Type", "application/json");
-        return responseHeaders;
+    @RequestMapping(value = "/products", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String getProducts(HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
+        List<Product> products = asList(
+            new Product("Super Glue"),
+            new Product("Kool-Aide")
+        );
+
+        return jsonMapper.writeValueAsString(products);
     }
 }
