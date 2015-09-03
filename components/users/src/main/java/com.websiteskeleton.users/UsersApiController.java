@@ -2,7 +2,7 @@ package com.websiteskeleton.users;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.http.*;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,22 +11,8 @@ import java.util.List;
 import static java.util.Arrays.asList;
 
 @Controller
-public class UsersController {
+public class UsersApiController {
     private final ObjectMapper jsonMapper = new ObjectMapper();
-
-    // TODO: Move to more appropriate place
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getIndex() {
-        return "home";
-    }
-
-    // TODO: Move to more appropriate place
-    @RequestMapping(value = "/health", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public String getHealth() {
-        return "OK";
-    }
-
     @RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String getUsers() throws JsonProcessingException {

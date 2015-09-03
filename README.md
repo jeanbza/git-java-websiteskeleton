@@ -27,6 +27,7 @@ we'll assume you downloaded jetty at `~/workspace/jetty`
 1. Unit tests: either `./gradlew` (clean compile test), or specifically `./gradlew unitTest`
 1. Acceptance tests: `./gradlew acceptanceTest`
     - Note: you may need to install Firefox for Selenium to run
+1. All the tests: `./gradlew clean assemble unitTest acceptanceTest`
 
 ## Setting up Jenkins CI (with vagrant, virtualbox, chef)
 

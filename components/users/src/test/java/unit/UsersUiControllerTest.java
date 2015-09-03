@@ -1,22 +1,22 @@
 package unit;
 
-import com.websiteskeleton.users.UsersController;
+import com.websiteskeleton.users.*;
 import org.junit.*;
-import org.mockito.*;
+import org.mockito.InjectMocks;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
-public class UsersControllerTest {
-    @InjectMocks UsersController controller;
+public class UsersUiControllerTest {
+    @InjectMocks UsersUiController controller;
 
     private MockMvc mockMvc;
 
     @Before
     public void setup() throws Exception {
-        controller = new UsersController();
+        controller = new UsersUiController();
         mockMvc = standaloneSetup(controller).build();
     }
 
@@ -32,19 +32,6 @@ public class UsersControllerTest {
         mockMvc.perform(get("/health"))
             .andExpect(status().isOk())
             .andExpect(content().string("OK"))
-            .andExpect(header().string("content-type", "application/json"));
-    }
-
-    @Test
-    public void testGetUsers() throws Exception {
-        String sampleJson = "[" +
-            "{\"name\":\"Bob\"}," +
-            "{\"name\":\"Sue\"}" +
-        "]";
-
-        mockMvc.perform(get("/users"))
-            .andExpect(status().isOk())
-            .andExpect(content().string(sampleJson))
             .andExpect(header().string("content-type", "application/json"));
     }
 }
