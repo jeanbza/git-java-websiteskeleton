@@ -12,9 +12,6 @@ subprojects {
     apply plugin: 'java'
 
     repositories {
-        maven {
-            url 'https://repo.spring.io/libs-release'
-        }
         mavenCentral()
     }
 
