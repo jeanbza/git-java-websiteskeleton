@@ -38,7 +38,7 @@ we'll assume you downloaded jetty at `~/workspace/jetty`
 1. `vagrant plugin install vagrant-berkshelf`
 1. `vagrant plugin install vagrant-omnibus`
 1. `vagrant plugin install vagrant-vbguest` (possibly optional - install this if you see `Failed to mount folders in Linux guest.`)
-1. `cd ~/workspace/git-spring-websiteskeleton/ci && vagrant up --provision`
+1. `cd ~/workspace/git-spring-websiteskeleton/jenkins_ci && vagrant up --provision`
 
 ## Additional notes
 
