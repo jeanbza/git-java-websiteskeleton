@@ -58,29 +58,4 @@ task acceptanceTest(type: Test) {
     )
 }
 
-acceptanceTest.doFirst {
-    println 'Waiting on server...'
-    Thread.sleep(3000) // ensure the server has been stopped before our first getHealth
-
-    def attempts = 0;
-    def maxAttempts = 120;
-    def getHealth = {
-        try {
-            return 'http://127.0.0.1:8080/applications/core/health'.toURL().getText()
-        } catch (Exception e) {
-            return ''
-        }
-    }
-    while (!getHealth().contains('OK')) {
-        println 'Attempt ' + attempts
-        attempts++;
-        Thread.sleep(1000)
-        if (attempts >= maxAttempts) {
-            throw new GradleException('Timeout waiting for server to be up.')
-        }
-    }
-
-    println 'Running tests...'
-}
-
 defaultTasks 'clean', 'assemble', 'unitTest', 'war'
