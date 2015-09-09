@@ -1,6 +1,6 @@
 package unit;
 
-import com.websiteskeleton.users.*;
+import com.websiteskeleton.users.UsersUiController;
 import org.junit.*;
 import org.mockito.InjectMocks;
 import org.springframework.test.web.servlet.MockMvc;
@@ -16,7 +16,7 @@ public class UsersUiControllerTest {
 
     @Before
     public void setup() throws Exception {
-        controller = new UsersUiController();
+        controller = new UsersUiController("foo bar");
         mockMvc = standaloneSetup(controller).build();
     }
 
@@ -31,7 +31,7 @@ public class UsersUiControllerTest {
     public void testGetHealth() throws Exception {
         mockMvc.perform(get("/health"))
             .andExpect(status().isOk())
-            .andExpect(content().string("OK"))
+            .andExpect(content().string("OK: foo bar"))
             .andExpect(header().string("content-type", "application/json"));
     }
 }
