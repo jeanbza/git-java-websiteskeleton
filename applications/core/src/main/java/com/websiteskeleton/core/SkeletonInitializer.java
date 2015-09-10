@@ -9,7 +9,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.*;
 
-public class HelloInitializer implements WebApplicationInitializer {
+public class SkeletonInitializer implements WebApplicationInitializer {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
