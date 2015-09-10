@@ -2,6 +2,7 @@ package acceptance.restassured;
 
 import org.junit.*;
 import org.mockserver.client.server.MockServerClient;
+import org.mockserver.verify.VerificationTimes;
 
 import static com.jayway.restassured.RestAssured.get;
 import static com.jayway.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -29,5 +30,9 @@ public class ProductsTest {
             .and().assertThat().body("get(0).name", equalTo("Super Glue"))
             .and().assertThat().body("get(1).name", equalTo("Kool-Aide"))
             .and().assertThat().body("get(2).name", equalTo("Some External Product"));
+
+        mockServer.verify(request().withMethod("GET")
+            .withPath("/external-product"),
+            VerificationTimes.exactly(1));
     }
 }
