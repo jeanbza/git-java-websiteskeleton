@@ -19,6 +19,7 @@ subprojects {
     }
 
     ext {
+        mockserverVersion = '3.9.17'
         springVersion = '4.1.0.RELEASE'
         slf4jVersion = '1.7.7'
 
@@ -43,11 +44,10 @@ subprojects {
             'com.jayway.restassured:rest-assured:2.5.0',
             'com.jayway.restassured:json-schema-validator:2.5.0',
 
-            'org.mock-server:mockserver-integration-testing:3.9.17',
-            'org.mock-server:mockserver:3.9.17',
-            'org.mock-server:mockserver-netty:3.9.17',
-            'org.mock-server:mockserver-core:3.9.17',
-            'io.netty:netty-all:4.0.31.Final'
+            "org.mock-server:mockserver-integration-testing:$mockserverVersion",
+            "org.mock-server:mockserver:$mockserverVersion",
+            "org.mock-server:mockserver-netty:$mockserverVersion",
+            "org.mock-server:mockserver-core:$mockserverVersion",
         )
 
         testRuntime(
