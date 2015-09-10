@@ -41,7 +41,13 @@ subprojects {
             'org.fluentlenium:fluentlenium-assertj:0.10.3',
             'org.seleniumhq.selenium:selenium-java:2.47.1',
             'com.jayway.restassured:rest-assured:2.5.0',
-            'com.jayway.restassured:json-schema-validator:2.5.0'
+            'com.jayway.restassured:json-schema-validator:2.5.0',
+
+            'org.mock-server:mockserver-integration-testing:3.9.17',
+            'org.mock-server:mockserver:3.9.17',
+            'org.mock-server:mockserver-netty:3.9.17',
+            'org.mock-server:mockserver-core:3.9.17',
+            'io.netty:netty-all:4.0.31.Final'
         )
 
         testRuntime(
