@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.*;
 
-import java.util.List;
+import java.util.*;
 
 import static java.util.Arrays.asList;
 
@@ -25,9 +25,18 @@ public class ProductsController {
     @RequestMapping(value = "/products", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String getProducts() throws JsonProcessingException {
-        String externalProduct = restTemplate.getForObject("http://localhost:6789/external-product", String.class);
+        List<Product> products = new ArrayList<>();
+        products.addAll(asList(new Product("Super Glue"), new Product("Kool-Aide")));
+        Optional<Product> externalProduct = Optional.empty();
 
-        List<Product> products = asList(new Product("Super Glue"), new Product("Kool-Aide"), new Product(externalProduct));
+        try {
+            String externalProductString = restTemplate.getForObject("http://localhost:6789/external-product", String.class);
+            externalProduct = Optional.of(new Product(externalProductString));
+        } catch (RestClientException e) {
+            // server is down - ignore
+        }
+
+        externalProduct.ifPresent(products::add);
 
         return jsonMapper.writeValueAsString(products);
     }
