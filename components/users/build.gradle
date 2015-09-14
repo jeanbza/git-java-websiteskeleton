@@ -1,4 +1,10 @@
 dependencies {
+    ext {
+        seleniumVersion = '2.47.1'
+        restAssuredVersion = '2.5.0'
+        fluentleniumVersion = '0.10.3'
+    }
+
     compile(
         "org.slf4j:slf4j-api:$slf4jVersion",
         'javax.servlet:javax.servlet-api:3.1.0',
@@ -9,6 +15,26 @@ dependencies {
     springCompile('spring-context')
     springCompile('spring-core')
     springCompile('spring-webmvc')
+
+    testCompile (
+        'com.codeborne:phantomjsdriver:1.2.1',
+
+        "org.seleniumhq.selenium:selenium-java:$seleniumVersion",
+        "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion",
+        "org.seleniumhq.selenium:selenium-server:$seleniumVersion",
+
+        "org.fluentlenium:fluentlenium-core:$fluentleniumVersion",
+        "org.fluentlenium:fluentlenium-assertj:$fluentleniumVersion",
+    )
+
+    configurations {
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-chrome-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-edge-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-htmlunit-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-firefox-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-ie-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-safari-driver'
+    }
 }
 
 task acceptanceTest(type: Test) {
