@@ -5,7 +5,7 @@
 --
 
 A website skeleton written with JDK1.8, Spring 4.0 (without spring boot), multi-component Gradle, JSPs, JUnit tests,
-and FluentLenium+Rest-Assured acceptance tests.
+and FluentLenium+Rest-Assured acceptance tests running in a headless browser (no browser spun up to run acceptance tests).
 
 --
 
@@ -53,6 +53,5 @@ we'll assume you downloaded jetty at `~/workspace/jetty`
 
 ## Additional notes
 
-- Travis CI will only run unit tests. Integration tests require spinning up a server and running the app. This is in the works
 - The java chef downloads from oracle (sigh). If your connection is slow or spotty, it may fail on a curl command. Give it
 a couple of shots (`vagrant provision` will do it) until the curl successfully completes
