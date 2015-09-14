@@ -21,7 +21,6 @@ dependencies {
 
         "org.seleniumhq.selenium:selenium-java:$seleniumVersion",
         "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion",
-        "org.seleniumhq.selenium:selenium-server:$seleniumVersion",
 
         "org.fluentlenium:fluentlenium-core:$fluentleniumVersion",
         "org.fluentlenium:fluentlenium-assertj:$fluentleniumVersion",

@@ -44,9 +44,7 @@ subprojects {
             "com.jayway.restassured:json-schema-validator:$restAssuredVersion",
 
             "org.mock-server:mockserver-integration-testing:$mockserverVersion",
-            "org.mock-server:mockserver:$mockserverVersion",
             "org.mock-server:mockserver-netty:$mockserverVersion",
-            "org.mock-server:mockserver-core:$mockserverVersion",
         )
 
         testRuntime(
