@@ -19,6 +19,9 @@ subprojects {
     }
 
     ext {
+        seleniumVersion = '2.47.1'
+        restAssuredVersion = '2.5.0'
+        fluentleniumVersion = '0.10.3'
         mockserverVersion = '3.9.17'
         springVersion = '4.1.0.RELEASE'
         slf4jVersion = '1.7.7'
@@ -38,11 +41,18 @@ subprojects {
             'junit:junit:4.11',
             'org.hamcrest:hamcrest-library:1.3',
             'org.mockito:mockito-core:1.9.5',
-            'org.fluentlenium:fluentlenium-core:0.10.3',
-            'org.fluentlenium:fluentlenium-assertj:0.10.3',
-            'org.seleniumhq.selenium:selenium-java:2.47.1',
-            'com.jayway.restassured:rest-assured:2.5.0',
-            'com.jayway.restassured:json-schema-validator:2.5.0',
+
+            'com.codeborne:phantomjsdriver:1.2.1',
+
+            "org.seleniumhq.selenium:selenium-java:$seleniumVersion",
+            "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion",
+            "org.seleniumhq.selenium:selenium-server:$seleniumVersion",
+
+            "org.fluentlenium:fluentlenium-core:$fluentleniumVersion",
+            "org.fluentlenium:fluentlenium-assertj:$fluentleniumVersion",
+
+            "com.jayway.restassured:rest-assured:$restAssuredVersion",
+            "com.jayway.restassured:json-schema-validator:$restAssuredVersion",
 
             "org.mock-server:mockserver-integration-testing:$mockserverVersion",
             "org.mock-server:mockserver:$mockserverVersion",
@@ -53,6 +63,15 @@ subprojects {
         testRuntime(
             'ch.qos.logback:logback-classic:1.1.2',
         )
+    }
+
+    configurations {
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-chrome-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-edge-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-htmlunit-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-firefox-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-ie-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-safari-driver'
     }
 }
 
