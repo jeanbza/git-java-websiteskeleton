@@ -1,3 +1,14 @@
+# git-spring-websiteskeleton
+
+[![Build Status](https://travis-ci.org/jadekler/git-java-websiteskeleton.svg?branch=master)](https://travis-ci.org/jadekler/git-java-websiteskeleton)
+
+--
+
+A website skeleton written with JDK1.8, Spring 4.0 (without spring boot), multi-component Gradle, JSPs, JUnit tests,
+and FluentLenium+Rest-Assured acceptance tests running in a headless browser (no browser spun up to run acceptance tests).
+
+--
+
 # Table of Contents
 
 - [Installation and running](#installation-and-running)
@@ -11,17 +22,6 @@
     - [Acceptance tests using a mocked server](#acceptance-tests-using-a-mocked-server)
     - [Running app with embedded tomcat server at different log levels](#running-app-with-embedded-tomcat-server-at-different-log-levels)
 - [Additional notes](#additional-notes)
-
-# git-spring-websiteskeleton
-
-[![Build Status](https://travis-ci.org/jadekler/git-java-websiteskeleton.svg?branch=master)](https://travis-ci.org/jadekler/git-java-websiteskeleton)
-
---
-
-A website skeleton written with JDK1.8, Spring 4.0 (without spring boot), multi-component Gradle, JSPs, JUnit tests,
-and FluentLenium+Rest-Assured acceptance tests running in a headless browser (no browser spun up to run acceptance tests).
-
---
 
 ## Installation and running
 
