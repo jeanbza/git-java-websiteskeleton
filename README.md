@@ -26,15 +26,13 @@ we'll assume you downloaded jetty at `~/workspace/jetty`
 
 1. [Install PhantomJS](http://phantomjs.org/download.html) (for headless browser testing)
     1. Download the [phantomjs binary](https://github.com/eugene1g/phantomjs/releases/tag/2.0.0-bin)
-
-    EITHER
-
     1. `cp -r ~/Downloads/phantomjs ~/dev/` (or wherever you prefer)
     1. `echo "export PATH:$PATH:~/dev/phantomjs" >> ~/.bash_profile"`
     1. Ensure `which phantomjs` works
 
     OR
 
+    1. Download the [phantomjs binary](https://github.com/eugene1g/phantomjs/releases/tag/2.0.0-bin)
     1. Alter `components/users/src/test/java/acceptance/fluentlenium/UsersTest.java` and directly point to your binary with
      `capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "/path/to/phantomjs");`
 1. Unit tests: either `./gradlew` (clean compile test), or specifically `./gradlew unitTest`
