@@ -1,6 +1,5 @@
 package acceptance.restassured;
 
-import com.jayway.restassured.RestAssured;
 import org.junit.*;
 import org.mockserver.client.server.MockServerClient;
 import org.mockserver.verify.VerificationTimes;
@@ -31,7 +30,7 @@ public class ProductsTest {
             .when(request().withMethod("GET").withPath("/external-product"))
             .respond(response().withStatusCode(200).withBody("Some External Product"));
 
-        get("http://127.0.0.1:8080/applications/core/products")
+        get("http://127.0.0.1:8080/products")
             .then().assertThat().body(matchesJsonSchemaInClasspath("products-schema.json"))
             .and().assertThat().body("size()", equalTo(3))
             .and().assertThat().body("get(0).name", equalTo("Super Glue"))
@@ -49,7 +48,7 @@ public class ProductsTest {
             .when(request().withMethod("GET").withPath("/external-product"))
             .respond(response().withStatusCode(404));
 
-        get("http://127.0.0.1:8080/applications/core/products")
+        get("http://127.0.0.1:8080/products")
             .then().assertThat().body(matchesJsonSchemaInClasspath("products-schema.json"))
             .and().assertThat().body("size()", equalTo(2))
             .and().assertThat().body("get(0).name", equalTo("Super Glue"))

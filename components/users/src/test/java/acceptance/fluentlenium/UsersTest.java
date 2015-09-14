@@ -19,13 +19,13 @@ public class UsersTest extends FluentTest {
 
     @Test
     public void testGetIndex() {
-        goTo("http://127.0.0.1:8080/applications/core");
+        goTo("http://127.0.0.1:8080");
         assertThat(pageSource()).contains("Hello world!");
     }
 
     @Test
     public void testGetHealth() {
-        goTo("http://127.0.0.1:8080/applications/core/health");
+        goTo("http://127.0.0.1:8080/health");
         assertThat(pageSource()).contains("OK: You are using application-test.yml!");
     }
 }

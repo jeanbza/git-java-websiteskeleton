@@ -37,8 +37,13 @@ dependencies {
     springCompile("spring-context")
 }
 
+tomcatRunWar {
+    contextPath = ''
+}
+
 task acceptanceTomcatRunWar(type: com.bmuschko.gradle.tomcat.tasks.TomcatRunWar) {
     daemon = true
+    contextPath = ''
 }
 
 war

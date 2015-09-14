@@ -15,12 +15,16 @@ and FluentLenium+Rest-Assured acceptance tests running in a headless browser (no
 1. `git clone https://github.com/jadekler/git-spring-websiteskeleton.git`. I'll assume you cloned this at
 `~/workspace/git-spring-websiteskeleton`
 1. `cd ~/workspace/git-spring-websiteskeleton`
-1. `./gradlew`
-1. Download [jetty](http://download.eclipse.org/jetty/stable-9/dist/) (or your server of choice). For this tutorial,
-we'll assume you downloaded jetty at `~/workspace/jetty`
-1. `cp ~/workspace/git-spring-websiteskeleton/applications/core/build/libs/applications/core.war ~/workspace/jetty/webapps/core.war`
-1. `~/workspace/jetty/bin/jetty.sh start`
-1. Navigate to `http://localhost:8080/core/`
+1. `./gradlew tomcatRunWar`
+1. Navigate to `http://localhost:8080`
+
+## Deploying your app to a jetty / tomcat server
+
+1. `./gradlew clean assemble`
+1. Copy / reference `applications/core/build/libs/applications/core.war`, NOT `build/libs/websiteskeleton-1.0.war`
+
+NOTE: The `applications/core` master component is where all components with `components` get compiled into one final
+application - note the project compiles happening at `applications/core/build.gradle`.
 
 ## Running tests
 
@@ -50,6 +54,32 @@ we'll assume you downloaded jetty at `~/workspace/jetty`
 1. `vagrant plugin install vagrant-omnibus`
 1. `vagrant plugin install vagrant-vbguest` (possibly optional - install this if you see `Failed to mount folders in Linux guest.`)
 1. `cd ~/workspace/git-spring-websiteskeleton/jenkins_ci && vagrant up --provision`
+
+## Code Examples
+
+##### Loading properties from a .yml file
+
+See:
+
+- `applications/core/src/main/java/com/websiteskeleton/core/YamlConfiguration.java`
+- `applications/core/src/main/resources/application.yml`
+- `applications/core/src/main/resources/application-test.yml`
+
+##### Browser testing using a headless browser
+
+See: `components/users/src/test/java/acceptance/restassured/UsersTest`
+
+##### Acceptance testing REST API
+
+See: `components/products/src/test/java/acceptance/restassured/ProductsTest`
+
+##### Acceptance tests using a mocked server
+
+See: `components/products/src/test/java/acceptance/restassured/ProductsTest`
+
+##### Running app with embedded tomcat server at different log levels
+
+See: `applications/src/main/java/resources/example-logback.xml` (rename to `logback.xml` and you're set)
 
 ## Additional notes
 

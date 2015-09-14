@@ -9,7 +9,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class UsersTest {
     @Test
     public void testGetUsers() {
-        get("http://127.0.0.1:8080/applications/core/users")
+        get("http://127.0.0.1:8080/users")
             .then().assertThat().body(matchesJsonSchemaInClasspath("users-schema.json"))
             .and().assertThat().body("get(0).name", equalTo("Bob"))
             .and().assertThat().body("get(1).name", equalTo("Sue"));
