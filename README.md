@@ -1,3 +1,17 @@
+# Table of Contents
+
+- [Installation and running](#installation-and-running)
+- [Deploying your app to a jetty / tomcat server](#deploying-your-app-to-a-jetty--tomcat-server)
+- [Running tests](#running-tests)
+- [Setting up Jenkins CI (with vagrant, virtualbox, chef)](#setting-up-jenkins-ci-with-vagrant-virtualbox-chef)
+- [Code Examples](#code-examples)
+    - [Loading properties from a .yml file](#loading-properties-from-a-yml-file)
+    - [Browser testing using a headless browser](#browser-testing-using-a-headless-browser)
+    - [Acceptance testing REST API](#acceptance-testing-rest-api)
+    - [Acceptance tests using a mocked server](#acceptance-tests-using-a-mocked-server)
+    - [Running app with embedded tomcat server at different log levels](#running-app-with-embedded-tomcat-server-at-different-log-levels)
+- [Additional notes](#additional-notes)
+
 # git-spring-websiteskeleton
 
 [![Build Status](https://travis-ci.org/jadekler/git-java-websiteskeleton.svg?branch=master)](https://travis-ci.org/jadekler/git-java-websiteskeleton)
