@@ -11,3 +11,4 @@ build
 *.class
 .idea
 classes*
+node_modules

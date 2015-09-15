@@ -1,3 +1,14 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'be.filipblondeel.gradle:gradle-gulp-plugin:0.1'
+    }
+}
+
+apply plugin: 'gulp'
+
 dependencies {
     ext {
         seleniumVersion = '2.47.1'
@@ -48,3 +59,5 @@ task unitTest(type: Test) {
     include 'unit/**'
     exclude 'acceptance/**'
 }
+
+assemble.dependsOn gulp_build
