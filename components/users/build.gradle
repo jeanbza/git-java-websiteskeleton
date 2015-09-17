@@ -1,7 +1,6 @@
 dependencies {
     ext {
         seleniumVersion = '2.47.1'
-        restAssuredVersion = '2.5.0'
         fluentleniumVersion = '0.10.3'
     }
 
