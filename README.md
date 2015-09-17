@@ -12,6 +12,7 @@ and FluentLenium+Rest-Assured acceptance tests running in a headless browser (no
 # Table of Contents
 
 - [Installation and running](#installation-and-running)
+- [Project Dependencies](#project-dependencies)
 - [Deploying your app to a jetty / tomcat server](#deploying-your-app-to-a-jetty--tomcat-server)
 - [Running tests](#running-tests)
 - [Setting up Jenkins CI (with vagrant, virtualbox, chef)](#setting-up-jenkins-ci-with-vagrant-virtualbox-chef)
@@ -22,6 +23,20 @@ and FluentLenium+Rest-Assured acceptance tests running in a headless browser (no
     - [Acceptance tests using a mocked server](#acceptance-tests-using-a-mocked-server)
     - [Running app with embedded tomcat server at different log levels](#running-app-with-embedded-tomcat-server-at-different-log-levels)
 - [Additional notes](#additional-notes)
+
+## Project Dependencies
+
+This project has a few dependencies for building and testing Javascript that need to be installed
+separately from gradle. Once you have them, the gradle build tasks will use them to build your javascript.
+
+- Gulp is a task runner for Javascript, and will be used for building, concatenating, minifying, and testing
+the Javascript. You will use NPM to install Gulp.
+- NPM is the Node package manager, and will be used for managing Javascript dependencies
+
+1. `brew install node`
+1. `npm install -g npm gulp` (Node comes with NPM, this uses NPM to update itself and install gulp)
+1. `cd components/users`
+1. `npm install`
 
 ## Installation and running
 

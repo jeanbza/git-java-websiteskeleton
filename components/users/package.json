@@ -1,0 +1,22 @@
+{
+  "name": "users",
+  "version": "1.0.0",
+  "description": "Users Component",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "domready": "^1.0.8",
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "coffeeify": "^1.1.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-karma": "0.0.4",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.0.4",
+    "karma": "^0.13.9",
+    "vinyl-source-stream": "^1.1.0",
+    "yargs": "^3.24.0"
+  }
+}
