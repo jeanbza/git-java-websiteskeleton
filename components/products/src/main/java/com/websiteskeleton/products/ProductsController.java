@@ -16,10 +16,18 @@ import static java.util.Arrays.asList;
 public class ProductsController {
     private final ObjectMapper jsonMapper = new ObjectMapper();
     private final RestTemplate restTemplate;
+    private final String propsFileValue;
 
     @Autowired
-    public ProductsController(RestTemplate restTemplate) {
+    public ProductsController(RestTemplate restTemplate, String propsFileValue) {
         this.restTemplate = restTemplate;
+        this.propsFileValue = propsFileValue;
+    }
+
+    @RequestMapping(value = "/propsvalue", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String getPropsValue() {
+        return propsFileValue;
     }
 
     @RequestMapping(value = "/products", produces = MediaType.APPLICATION_JSON_VALUE)
