@@ -1,0 +1,23 @@
+{
+    "name": "spring-boot-skeleton",
+    "version": "1.0.0",
+    "description": "Skeleton assets",
+    "dependencies": {
+        "jquery": "^2.1.4"
+    },
+    "devDependencies": {
+        "browserify": "^11.0.1",
+        "gulp": "^3.9.0",
+        "gulp-concat": "^2.6.0",
+        "gulp-uglify": "^1.4.1",
+        "gulp-imagemin": "^2.3.0",
+        "gulp-replace": "^0.5.4",
+        "gulp-sourcemaps": "^1.5.2",
+        "vinyl-source-stream": "^1.1.0",
+        "vinyl-buffer": "^1.0.0",
+        "del": "^2.0.2"
+    },
+    "scripts": {
+        "run-gulp": "gulp"
+    }
+}

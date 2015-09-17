@@ -24,6 +24,12 @@ public class UsersTest extends FluentTest {
     }
 
     @Test
+    public void testJavascript() {
+        goTo("http://127.0.0.1:8080");
+        assertThat(pageSource()).contains("Hello from javascript!");
+    }
+
+    @Test
     public void testGetHealth() {
         goTo("http://127.0.0.1:8080/health");
         assertThat(pageSource()).contains("OK: You are using application-test.yml!");

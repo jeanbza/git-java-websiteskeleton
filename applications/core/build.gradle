@@ -16,25 +16,26 @@ def tomcatVersion = '7.0.59'
 
 dependencies {
     compile(
-        project(":components/users"),
-        project(":components/products"),
+        project(':client'),
+        project(':components/users'),
+        project(':components/products'),
 
-        "javax.servlet:javax.servlet-api:3.1.0",
+        'javax.servlet:javax.servlet-api:3.1.0',
         'org.yaml:snakeyaml:1.16'
     )
 
     runtime(
-        "ch.qos.logback:logback-classic:1.1.2"
+        'ch.qos.logback:logback-classic:1.1.2'
     )
 
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
 
-    springCompile("spring-core")
-    springCompile("spring-web")
-    springCompile("spring-webmvc")
-    springCompile("spring-context")
+    springCompile('spring-core')
+    springCompile('spring-web')
+    springCompile('spring-webmvc')
+    springCompile('spring-context')
 }
 
 tomcatRunWar {
