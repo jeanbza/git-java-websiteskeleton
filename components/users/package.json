@@ -15,7 +15,7 @@
     "gulp-karma": "0.0.4",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.0.4",
-    "karma": "^0.13.9",
+    "karma": "^0.12",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^3.24.0"
   }

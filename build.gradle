@@ -1,12 +1,4 @@
 apply plugin: 'java'
-apply plugin: 'war'
-
-version = '1.0'
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
 
 subprojects {
     apply plugin: 'java'
@@ -20,33 +12,6 @@ subprojects {
         restAssuredVersion = '2.5.0'
         springVersion = '4.1.0.RELEASE'
         slf4jVersion = '1.7.7'
-
-        springCompile = { module ->
-            compile("org.springframework:$module:$springVersion") {
-                exclude group: 'commons-logging'
-            }
-            compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
-        }
-        springCompile.delegate = project.dependencies
-    }
-
-    dependencies {
-        testCompile(
-            "org.springframework:spring-test:$springVersion",
-            'junit:junit:4.11',
-            'org.hamcrest:hamcrest-library:1.3',
-            'org.mockito:mockito-core:1.9.5',
-
-            "com.jayway.restassured:rest-assured:$restAssuredVersion",
-            "com.jayway.restassured:json-schema-validator:$restAssuredVersion",
-
-            "org.mock-server:mockserver-integration-testing:$mockserverVersion",
-            "org.mock-server:mockserver-netty:$mockserverVersion",
-        )
-
-        testRuntime(
-            'ch.qos.logback:logback-classic:1.1.2',
-        )
     }
 }
 
