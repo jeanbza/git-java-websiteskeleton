@@ -2,6 +2,7 @@ package com.websiteskeleton.users;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,13 @@ import static java.util.Arrays.asList;
 
 @Controller
 public class UsersApiController {
-    private final ObjectMapper jsonMapper = new ObjectMapper();
+    private ObjectMapper objectMapper;
+
+    @Autowired
+    public UsersApiController(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
+
     @RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String getUsers() throws JsonProcessingException {
@@ -21,6 +28,6 @@ public class UsersApiController {
             new User("Sue")
         );
 
-        return jsonMapper.writeValueAsString(users);
+        return objectMapper.writeValueAsString(users);
     }
 }

@@ -1,8 +1,8 @@
 package unit;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.websiteskeleton.users.UsersApiController;
 import org.junit.*;
-import org.mockito.InjectMocks;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -10,13 +10,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
 public class UsersApiControllerTest {
-    @InjectMocks UsersApiController controller;
-
     private MockMvc mockMvc;
 
     @Before
     public void setup() throws Exception {
-        controller = new UsersApiController();
+        UsersApiController controller = new UsersApiController(new ObjectMapper());
         mockMvc = standaloneSetup(controller).build();
     }
 

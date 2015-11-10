@@ -1,26 +1,15 @@
-apply plugin: 'java'
-
 subprojects {
-    apply plugin: 'java'
-
-    repositories {
-        mavenCentral()
-    }
-
     ext {
+        springVersion = '4.2.1.RELEASE'
+        springBootVersion = '1.2.5.RELEASE'
         mockserverVersion = '3.9.17'
         restAssuredVersion = '2.5.0'
-        springVersion = '4.1.0.RELEASE'
         slf4jVersion = '1.7.7'
     }
 }
 
-task acceptanceTest(type: Test) {
-    dependsOn(
-        ':applications/core:build',
-        ':applications/core:war',
-        ':applications/core:acceptanceTomcatRunWar'
-    )
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
 }
 
-defaultTasks 'clean', 'assemble', 'unitTest', 'war'
+defaultTasks 'build'

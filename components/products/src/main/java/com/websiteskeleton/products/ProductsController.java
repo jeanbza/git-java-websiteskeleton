@@ -14,12 +14,13 @@ import static java.util.Arrays.asList;
 
 @Controller
 public class ProductsController {
-    private final ObjectMapper jsonMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper;
     private final RestTemplate restTemplate;
 
     @Autowired
-    public ProductsController(RestTemplate restTemplate) {
+    public ProductsController(RestTemplate restTemplate, ObjectMapper objectMapper) {
         this.restTemplate = restTemplate;
+        this.objectMapper = objectMapper;
     }
 
     @RequestMapping(value = "/products", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -38,6 +39,6 @@ public class ProductsController {
 
         externalProduct.ifPresent(products::add);
 
-        return jsonMapper.writeValueAsString(products);
+        return objectMapper.writeValueAsString(products);
     }
 }

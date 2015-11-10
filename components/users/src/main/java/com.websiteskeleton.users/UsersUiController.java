@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UsersUiController {
-    private String yamlPropertyMessage;
+    private String someYamlProperty;
 
     @Autowired
-    public UsersUiController(String yamlPropertyMessage) {
-        this.yamlPropertyMessage = yamlPropertyMessage;
+    public UsersUiController(String someYamlProperty) {
+        this.someYamlProperty = someYamlProperty;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -22,6 +22,6 @@ public class UsersUiController {
     @RequestMapping(value = "/health", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String getHealth() {
-        return "OK: " + yamlPropertyMessage;
+        return "OK: " + someYamlProperty;
     }
 }

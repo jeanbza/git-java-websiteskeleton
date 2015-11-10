@@ -1,3 +1,9 @@
+apply plugin: 'java'
+apply plugin: 'gulp'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 buildscript {
     repositories {
         jcenter()
@@ -7,67 +13,32 @@ buildscript {
     }
 }
 
-apply plugin: 'gulp'
+repositories {
+    mavenCentral()
+}
 
 dependencies {
-    ext {
-        seleniumVersion = '2.47.1'
-        fluentleniumVersion = '0.10.3'
-    }
-
     compile(
+        "org.springframework:spring-core:$springVersion",
+        "org.springframework:spring-web:$springVersion",
+        "org.springframework:spring-webmvc:$springVersion",
+
+        "org.springframework.boot:spring-boot-starter:$springBootVersion",
+        "org.springframework.boot:spring-boot-starter-tomcat:$springBootVersion",
+        "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion",
+
         "org.slf4j:slf4j-api:$slf4jVersion",
         'javax.servlet:javax.servlet-api:3.1.0',
         'javax.servlet.jsp:javax.servlet.jsp-api:2.3.2-b01',
         'com.fasterxml.jackson.core:jackson-databind:2.6.1',
-
-        "org.springframework:spring-context:$springVersion",
-        "org.springframework:spring-core:$springVersion",
-        "org.springframework:spring-webmvc:$springVersion",
     )
 
     testCompile (
-        'com.codeborne:phantomjsdriver:1.2.1',
-
-        "org.seleniumhq.selenium:selenium-java:$seleniumVersion",
-        "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion",
-
-        "org.fluentlenium:fluentlenium-core:$fluentleniumVersion",
-        "org.fluentlenium:fluentlenium-assertj:$fluentleniumVersion",
-
         "org.springframework:spring-test:$springVersion",
         'junit:junit:4.11',
         'org.hamcrest:hamcrest-library:1.3',
         'org.mockito:mockito-core:1.9.5',
-
-        "com.jayway.restassured:rest-assured:$restAssuredVersion",
-        "com.jayway.restassured:json-schema-validator:$restAssuredVersion",
-
-        "org.mock-server:mockserver-integration-testing:$mockserverVersion",
-        "org.mock-server:mockserver-netty:$mockserverVersion",
     )
-
-    configurations {
-        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-chrome-driver'
-        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-edge-driver'
-        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-htmlunit-driver'
-        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-firefox-driver'
-        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-ie-driver'
-        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-safari-driver'
-    }
-}
-
-task acceptanceTest(type: Test) {
-    include 'acceptance/**'
-    exclude 'unit/**'
-
-    def fixtures = files("${projectDir}/src/test/java/acceptance/fixtures/")
-    classpath += fixtures
-}
-
-task unitTest(type: Test) {
-    include 'unit/**'
-    exclude 'acceptance/**'
 }
 
 gulp_build.dependsOn installGulp

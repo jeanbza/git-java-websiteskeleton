@@ -1,49 +1,56 @@
-apply plugin: 'war'
-apply plugin: 'com.bmuschko.tomcat'
-apply plugin: 'com.bmuschko.tomcat-base'
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
     }
-
     dependencies {
-        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.2'
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE'
     }
 }
 
-def tomcatVersion = '7.0.59'
+repositories {
+    mavenCentral()
+}
+
+String seleniumVersion = '2.47.1'
+String fluentleniumVersion = '0.10.3'
 
 dependencies {
     compile(
-        project(":components/users"),
-        project(":components/products"),
-
-        'javax.servlet:javax.servlet-api:3.1.0',
-        'org.yaml:snakeyaml:1.16',
+        project(':components/users'),
+        project(':components/products'),
 
         "org.springframework:spring-context:$springVersion",
         "org.springframework:spring-core:$springVersion",
-        "org.springframework:spring-webmvc:$springVersion",
         "org.springframework:spring-web:$springVersion",
+        "org.springframework:spring-webmvc:$springVersion",
+
+        "org.springframework.boot:spring-boot-starter:$springBootVersion",
+        "org.springframework.boot:spring-boot-starter-tomcat:$springBootVersion",
+
+        'javax.servlet:javax.servlet-api:3.1.0',
     )
 
-    runtime(
-        "ch.qos.logback:logback-classic:1.1.2"
+    testCompile(
+        "org.springframework:spring-test:$springVersion",
+
+        'junit:junit:4.11',
+
+        "com.jayway.restassured:rest-assured:$restAssuredVersion",
+        "com.jayway.restassured:json-schema-validator:$restAssuredVersion",
+
+        "org.mock-server:mockserver-integration-testing:$mockserverVersion",
+        "org.mock-server:mockserver-netty:$mockserverVersion",
+
+        "org.seleniumhq.selenium:selenium-java:$seleniumVersion",
+        "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion",
+
+        "org.fluentlenium:fluentlenium-core:$fluentleniumVersion",
+        "org.fluentlenium:fluentlenium-assertj:$fluentleniumVersion",
     )
-
-    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
-           "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
-           "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
 }
-
-tomcatRunWar {
-    contextPath = ''
-}
-
-task acceptanceTomcatRunWar(type: com.bmuschko.gradle.tomcat.tasks.TomcatRunWar) {
-    daemon = true
-    contextPath = ''
-}
-
-war

@@ -1,5 +1,6 @@
 package unit;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.websiteskeleton.products.ProductsController;
 import org.junit.*;
 import org.mockito.*;
@@ -25,7 +26,7 @@ public class ProductsControllerTest {
     public void setup() throws Exception {
         initMocks(this);
 
-        controller = new ProductsController(restTemplate);
+        controller = new ProductsController(restTemplate, new ObjectMapper());
         mockMvc = standaloneSetup(controller).build();
     }
 
