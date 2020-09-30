@@ -22,7 +22,7 @@ JUnit tests, and FluentLenium+Rest-Assured acceptance tests.
 NOTE: The `applications/core` master component is where all components with `components` get compiled into one final
 application - note the project compiles happening at `applications/core/build.gradle`.
 
-## Running tests
+## Running tests cases project
 
 `./gradlew clean test`
 
