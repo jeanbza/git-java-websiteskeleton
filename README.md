@@ -1,4 +1,5 @@
 # git-spring-websiteskeleton
+# git-java-websiteskeleton
 
 [![Build Status](https://travis-ci.org/jadekler/git-java-websiteskeleton.svg?branch=master)](https://travis-ci.org/jadekler/git-java-websiteskeleton)
 
