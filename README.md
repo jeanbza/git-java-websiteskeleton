@@ -9,7 +9,7 @@ JUnit tests, and FluentLenium+Rest-Assured acceptance tests.
 
 --
 
-## Installation and running
+## for Installation and running 
 
 1. `brew install node`
 1. [Download and install JDK8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -22,7 +22,7 @@ JUnit tests, and FluentLenium+Rest-Assured acceptance tests.
 NOTE: The `applications/core` master component is where all components with `components` get compiled into one final
 application - note the project compiles happening at `applications/core/build.gradle`.
 
-## Running tests
+## Running tests here
 
 `./gradlew clean test`
 
@@ -40,4 +40,4 @@ application - note the project compiles happening at `applications/core/build.gr
 ## Additional notes
 
 - The java chef downloads from oracle (sigh). If your connection is slow or spotty, it may fail on a curl command. Give it
-a couple of shots (`vagrant provision` will do it) until the curl successfully completes
+a couple of shots (`vagrant provision` will do it) until the curl successfully completes. or kindly check your connection and then try to re-download it.thanks
