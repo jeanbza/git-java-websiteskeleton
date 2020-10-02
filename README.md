@@ -5,7 +5,7 @@
 --
 
 A website skeleton written with JDK1.8, Spring 4.2 (spring-boot and spring-framework), multi-component Gradle, thymeleaf,
-JUnit tests, and FluentLenium+Rest-Assured acceptance tests.
+JUnit tests and FluentLenium+Rest-Assured acceptance tests.
 
 --
 
@@ -40,4 +40,4 @@ application - note the project compiles happening at `applications/core/build.gr
 ## Additional notes
 
 - The java chef downloads from oracle (sigh). If your connection is slow or spotty, it may fail on a curl command. Give it
-a couple of shots (`vagrant provision` will do it) until the curl successfully completes
+a couple of shots (`vagrant provision` will do it) until the curl successfully completes.
